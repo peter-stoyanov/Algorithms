@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReverseArray", "Recursion Exer\ReverseArray.csproj", "{B0700C38-D181-4D45-94CB-CF47A5DA0171}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NestedLoops", "NestedLoops\NestedLoops.csproj", "{9730FFBB-D89C-4CBF-8AC8-D2E2DEAE80EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CombinationsWithRepetitions", "CombinationsWithRepetitions\CombinationsWithRepetitions.csproj", "{0482C615-38A7-488F-8897-912FD3DBA412}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B0700C38-D181-4D45-94CB-CF47A5DA0171}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0700C38-D181-4D45-94CB-CF47A5DA0171}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0700C38-D181-4D45-94CB-CF47A5DA0171}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0700C38-D181-4D45-94CB-CF47A5DA0171}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9730FFBB-D89C-4CBF-8AC8-D2E2DEAE80EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9730FFBB-D89C-4CBF-8AC8-D2E2DEAE80EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9730FFBB-D89C-4CBF-8AC8-D2E2DEAE80EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9730FFBB-D89C-4CBF-8AC8-D2E2DEAE80EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0482C615-38A7-488F-8897-912FD3DBA412}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0482C615-38A7-488F-8897-912FD3DBA412}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0482C615-38A7-488F-8897-912FD3DBA412}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0482C615-38A7-488F-8897-912FD3DBA412}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

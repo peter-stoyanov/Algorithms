@@ -11,6 +11,8 @@ namespace Sorting_Lab
         public static void Sort(T[] array)
         {
             //Swaps the first element with the min element on the right unsorted part
+            //pulls the sorted elements to the left, can be run a few times when a few 
+            //of the first sorted results are neeeded, not the whole collection
 
             //CPU ticks for 1000 elements = 40_000 - 50_000
 

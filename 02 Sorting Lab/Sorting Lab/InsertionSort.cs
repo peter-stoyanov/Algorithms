@@ -17,31 +17,35 @@ namespace Sorting_Lab
             //move like this first to last unsorted
             //unsorted area shrinks each time
 
-            //CPU ticks for 1000 elements ~= 50_000
+            //CPU ticks for 1000 elements ~= 50_000 with strange peaks to 90_000
+
+            //great for almost sorted arrays
 
             for (int lastSortedInd = 0; lastSortedInd < array.Length - 1; lastSortedInd++)
             {
-                T firstUnsorted = array[lastSortedInd + 1];
+                int prevInd = lastSortedInd;
+                int firstUnsortedInd = lastSortedInd + 1;
 
-                int sortedEndOffset = 0;
-                T prev = array[lastSortedInd - sortedEndOffset];
-                while (Helpers.Less(firstUnsorted, prev) || sortedEndOffset == lastSortedInd)
+                T firstUnsorted = array[firstUnsortedInd];
+                T prev = array[prevInd];
+
+                while (Helpers.Less(firstUnsorted, prev) && prevInd >= 0)
                 {
-                    Helpers.Swap(array, );
+                    Helpers.Swap(array, firstUnsortedInd, prevInd);
 
-                    sortedEndOffset++;
-                    prev = array[lastSortedInd - sortedEndOffset];
+                    prevInd--;
+                    firstUnsortedInd--;
+
+                    if (!Helpers.IndexInsideRange(array, prevInd)
+                        || !Helpers.IndexInsideRange(array, firstUnsortedInd))
+                    {
+                        break;
+                    }
+
+                    firstUnsorted = array[firstUnsortedInd];
+                    prev = array[prevInd];
                 }
             }
-
-
-
-
-            if (!Helpers.Less(array[currInd], array[currInd + 1]))
-            {
-                Helpers.Swap(array, currInd, currInd + 1);
-            }
-
         }
     }
 }

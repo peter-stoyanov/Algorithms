@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D1A17D12-B246-45A5-A1F5-CA6D8F640718}</ProjectGuid>
+    <ProjectGuid>{9730FFBB-D89C-4CBF-8AC8-D2E2DEAE80EC}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Sorting_Lab</RootNamespace>
-    <AssemblyName>Sorting Lab</AssemblyName>
+    <RootNamespace>NestedLoops</RootNamespace>
+    <AssemblyName>NestedLoops</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -42,14 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BubbleSort.cs" />
-    <Compile Include="Helpers\Helpers.cs" />
-    <Compile Include="InsertionSort.cs" />
-    <Compile Include="MergeSort.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="NestedLoops.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SelectionSort.cs" />
-    <Compile Include="FisherYates.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

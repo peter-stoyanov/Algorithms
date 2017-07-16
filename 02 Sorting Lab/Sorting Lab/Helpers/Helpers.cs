@@ -46,5 +46,22 @@ namespace Sorting_Lab
 
             return arr;
         }
+
+        public static int[] GenerateSortedArray(int lo, int size)
+        {
+            int[] arr = new int[size];
+
+            for (int i = lo; i < size; i++)
+            {
+                arr[i] = i;
+            }
+
+            return arr;
+        }
+
+        public static bool IndexInsideRange<T>(T[] array, int index)
+        {
+            return index >= 0 && index < array.Length - 1;
+        }
     }
 }
