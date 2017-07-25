@@ -6,16 +6,26 @@ using System.Threading.Tasks;
 
 namespace Combinatorial_Algorithms
 {
-    class Program
+    public static class GeneralExtensions
+    {
+        public static T SwapWith<T>(this T current, ref T other)
+        {
+            T tmpOther = other;
+            other = current;
+            return tmpOther;
+        }
+    }
+
+    class PermutationsWithoutRepetition
     {
         static void Main(string[] args)
         {
-            //var inputStrings = Console.ReadLine().Split().ToArray();
-            var inputNumbers = Console.ReadLine().Split().Select(int.Parse).ToArray();
+            var inputStrings = Console.ReadLine().Split().ToArray();
+            //var inputNumbers = Console.ReadLine().Split().Select(int.Parse).ToArray();
 
             //GeneratePermutations(inputStrings);
 
-            Permute(inputNumbers);
+            Permute(inputStrings);
         }
 
         // Algorithm with additional bool array
@@ -51,7 +61,7 @@ namespace Combinatorial_Algorithms
         }
 
         //algorithm with no additionam memory req. and no add. arrays
-        private static void Permute(int[] arr, int startIndex = 0)
+        private static void Permute(string[] arr, int startIndex = 0)
         {
             if (startIndex >= arr.Length - 1)
             {
@@ -61,14 +71,14 @@ namespace Combinatorial_Algorithms
             {
                 for (int i = startIndex; i < arr.Length; i++)
                 {
-                    Swap(ref arr[startIndex], ref arr[i]);
+                    arr[startIndex] = arr[startIndex].SwapWith(ref arr[i]);
                     Permute(arr, startIndex + 1);
-                    Swap(ref arr[i], ref arr[startIndex]);
+                    arr[i] = arr[i].SwapWith(ref arr[startIndex]);
                 }
             }
         }
 
-        private static void Swap(ref int i, ref int j)
+        private static void SwapIntegers(ref int i, ref int j)
         {
             if (i == j)
             {
