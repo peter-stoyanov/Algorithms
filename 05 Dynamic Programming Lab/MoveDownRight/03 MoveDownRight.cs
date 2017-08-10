@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,12 +6,23 @@ using System.Threading.Tasks;
 
 class MoveDownRight
 {
+    struct Point
+    {
+        public Point(int row, int col)
+        {
+            this.Row = row;
+            this.Col = col;
+        }
+        public int Row { get; set; }
+        public int Col { get; set; }
+    }
+
     static void Main(string[] args)
     {
         int m = int.Parse(Console.ReadLine());
         int n = int.Parse(Console.ReadLine());
 
-        int[,] matrix = new int[m,n];
+        int[,] matrix = new int[m, n];
 
         //read matrix
         for (int i = 0; i < m; i++)
@@ -24,22 +35,32 @@ class MoveDownRight
             }
         }
 
-        //keep previous results and reuse them
+        // build the biggest sum to reach any cell in the matrix
         int[,] memo = new int[m, n];
 
         for (int i = 0; i < m; i++)
         {
             for (int j = 0; j < n; j++)
             {
-                //base case
                 if (i == 0 && j == 0)
                 {
                     memo[i, j] = matrix[i, j];
                     continue;
                 }
+                else if (i == 0)
+                {
+                    memo[i, j] = memo[i, j - 1] + matrix[i, j];
+                    continue;
+                }
+                else if (j == 0)
+                {
+                    memo[i, j] = memo[i - 1, j] + matrix[i, j];
+                    continue;
+                }
+                
 
-                int fromTop = i == 0 ? 0 : memo[i - 1, j];
-                int fromLeft = j == 0 ? 0 : memo[i, j - 1];
+                int fromTop = memo[i - 1, j];
+                int fromLeft = memo[i, j - 1];
 
                 if (fromTop > fromLeft)
                 {
@@ -51,46 +72,50 @@ class MoveDownRight
                 }
             }
         }
-        
+
+        #if DEBUG
+        Console.WriteLine("best sums memo matrix:");
+
+        for (int i = 0; i < memo.GetLength(0); i++)
+        {
+            for (int j = 0; j < memo.GetLength(1); j++)
+            {
+                Console.Write(memo[i, j] + " ");
+            }
+            Console.WriteLine();
+        }
+        #endif
+
         //keep optimal path
-        var path = new List<int>();
+        var path = new List<Point>();
 
         //follow best sum values
-        int row = 0;
-        int col = 0;
-        while (!(row == m - 1 && col == n - 1))
+        int row = m - 1;
+        int col = n - 1;
+        while (!(row == 0 && col == 0))
         {
-            path.Add(row);
-            path.Add(col);
+            path.Add(new Point(row, col));
 
-            int toTheRight = col == n - 1 ? 0 : memo[row, col + 1];
-            int toTheLeft = row == m - 1 ? 0 : memo[row + 1, col];
+            int left = col == 0 ? 0 : memo[row, col - 1];
+            int up = row == 0 ? 0 : memo[row - 1, col];
 
-            if (row == m - 1)
+            if (up > left)
             {
-                col += 1;
-            }
-            else if (col == n - 1)
-            {
-                row += 1;
-            }
-            else if (toTheRight > toTheLeft)
-            {
-                col += 1;
+                row -= 1;
             }
             else
             {
-                row += 1;
+                col -= 1;
             }
         }
 
-        path.Add(m - 1);
-        path.Add(n - 1);
+        path.Add(new Point(0, 0));
 
+        path.Reverse();
         //print path
-        for (int i = 0; i < path.Count - 1; i = i + 2)
+        for (int i = 0; i < path.Count; i++)
         {
-            Console.Write(String.Format("[{0}, {1}] ", path[i], path[i + 1]));
+            Console.Write(String.Format("[{0}, {1}] ", path[i].Row, path[i].Col));
         }
     }
 }
